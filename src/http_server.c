@@ -53,24 +53,3 @@ int connect_server(HTTP_Server *http_server, int *cli_fd)
 
   return 0;
 }
-
-int establish_connection(int *sockfd, int *cli_sockfd)
-{
-  //listen
-  int n = listen(*sockfd, 5);
-  if(n < 0)
-  {
-    perror("ERRROR: listen\n");
-    return -1;
-  }
-
-  //accept
-  socklen_t cli_len = sizeof(*cli_sockfd);
-  *cli_sockfd = accept(*sockfd, (struct sockaddr*)(cli_sockfd), &cli_len);
-  if(0 > *cli_sockfd)
-  {
-    perror("ERROR: accept\n");
-    return -1;
-  }
-   return 0;
-}

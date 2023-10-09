@@ -9,6 +9,6 @@ typedef struct HTTP_Server
 } HTTP_Server;
 
 int init_Server(HTTP_Server *http_server, int port);
-int connect_server(HTTP_Server *Http_server, int cli_fd);
+int connect_server(HTTP_Server *http_server, int *cli_fd);
 
 #endif
