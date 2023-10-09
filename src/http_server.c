@@ -27,7 +27,7 @@ int init_Server(HTTP_Server *http_server, int port)
     s_addr.sin_family = AF_INET;
     s_addr.sin_addr.s_addr = INADDR_ANY;
     s_addr.sin_port = htons(http_server->port);
-    if(0 > bind(http_server->socket, &s_addr, sizeof(s_addr)))
+    if(0 > bind(http_server->socket, (struct sockaddr*)(&s_addr), sizeof(s_addr)))
     {
         perror("ERROR: bind()\n");
         return -1;
