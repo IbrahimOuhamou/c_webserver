@@ -53,3 +53,8 @@ int connect_server(HTTP_Server *http_server, int *cli_fd)
 
   return 0;
 }
+
+int send_html(HTTP_Server *HTTP_Server, const char* html_file)
+{
+  
+}
