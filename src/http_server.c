@@ -50,6 +50,10 @@ int connect_server(HTTP_Server *http_server, int *cli_fd)
     perror("ERROR: accept()\n");
     return -1;
   }
+  else
+  {
+    printf("Alhamdo li Allah caccepted connection\n");
+  }
 
   return 0;
 }

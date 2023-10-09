@@ -23,4 +23,6 @@ int main()
     read(client_socket, client_msg, sizeof(client_msg) - 1);
 
     send_html(&server, "BismiAllah.html", &client_socket);
+    close(client_socket);
+    close(server.socket);
 }
