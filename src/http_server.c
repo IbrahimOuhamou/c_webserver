@@ -54,11 +54,22 @@ int connect_server(HTTP_Server *http_server, int *cli_fd)
   return 0;
 }
 
-int send_html(HTTP_Server *HTTP_Server, const char* file_path)
+int send_html(HTTP_Server *HTTP_Server, const char* file_path, int *cli_socket)
 {
   printf("BismiAllah: going to send file by the will of Allah\n");
   FILE* fp = fopen(file_path, "r");
-  
-
+  if (NULL == fp)
+  {
+    perror("file not open\n");
+    return -1;
+  }
+  char buffer[2048];
+  fgets(buffer, sizeof(buffer), fp);
   fclose(fp);
+
+  char response_data[4096] = "HTTP/1.1/ 200 OK\r\n\r\n";
+  strcat(response_data, response_data);
+  strcat(response_data, "\r\n\r\n");
+
+  send(*cli_socket, response_data, sizeof(response_data), 0);
 }

@@ -11,6 +11,6 @@ typedef struct HTTP_Server
 int init_Server(HTTP_Server *http_server, int port);
 int connect_server(HTTP_Server *http_server, int *cli_fd);
 
-int send_html(HTTP_Server *HTTP_Server, const char* file_path);
+int send_html(HTTP_Server *HTTP_Server, const char* file_path, int *cli_socket);
 
 #endif

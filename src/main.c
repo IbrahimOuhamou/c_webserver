@@ -22,4 +22,6 @@ int main()
     char client_msg[4096];
     read(client_socket, client_msg, sizeof(client_msg) - 1);
     printf("clien response:\n%s\n", client_msg);
+
+    send_html(&server, "BismiAllah.html", &client_socket);
 }
